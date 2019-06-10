@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hello Word For D3.js</title>
+  </head>
+  <body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script>
+      // 1. 选择集 select selectAll
+      // var p = d3
+      //   .select('body')
+      //   .selectAll('p')
+      //   .text('www.ourd3js.com');
+      // p.style('color', 'red').style('font-size', '72px');
+
+      // 2. 绑定数据 datum() data()
+      let dataset = ['apple','banana','cat']
+      let p = d3.selectAll('p')
+      p.data(dataset).text((data,index)=>data)
+    </script>
+  </body>
+</html>

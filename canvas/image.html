@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Canvas-绘制文字</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #canvas {
+        border: 1px solid #aaeeaa;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      let images = [
+        'http://picture.ik123.com/uploads/allimg/181122/4-1Q122162R5.jpg',
+        'http://picture.ik123.com/uploads/allimg/180402/4-1P402113329.jpg'
+      ];
+      const canvas = document.querySelector('#canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth - 2;
+      canvas.height = window.innerHeight - 2;
+      const showHeight = 500;
+      // 画图
+      let image = new Image();
+      image.src = images[1];
+      image.onload = e => {
+        ctx.drawImage(
+          e.target,
+          200,
+          200,
+          500,
+          300,
+          0,
+          0,
+          showHeight,
+          (e.target.height * showHeight) / e.target.width
+        );
+      };
+    </script>
+  </body>
+</html>

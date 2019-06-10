@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <output id="result"></output>
+    <script id="pageWorker" type="app/worker">
+      this.onmessage=function(evt){
+        console.log(evt.data)
+      }
+    </script>
+    <script>
+      // if (typeof Worker == 'undefined') {
+      //   alert('Sorry! No Web Worker support..');
+      // }
+      let worker = new Worker('worker.js');
+      console.log(worker);
+      worker.onmessage = function(event) {
+        document.getElementById('result').innerHTML = event.data;
+        if (event.data == 100) {
+          worker.postMessage('runs 100');
+        }
+        // worker.terminate();
+      };
+
+      // 同页面Worker
+      var blob = new Blob([document.querySelector('#pageWorker').textContent]);
+      var url = window.URL.createObjectURL(blob);
+      let pageWorker = new Worker(url);
+      pageWorker.postMessage('来自同页面的worker');
+    </script>
+  </body>
+</html>

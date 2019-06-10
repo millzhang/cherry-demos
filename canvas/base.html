@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Canvas</title>
+    <style>
+      #canvas {
+        border: 1px solid #aaeeaa;
+        margin: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+      const canvas = document.querySelector('#canvas');
+      const ctx = canvas.getContext('2d');
+      // 1. 画线
+      ctx.beginPath();
+      ctx.moveTo(10, 10);
+      ctx.lineTo(200, 200);
+      ctx.stroke();
+      ctx.closePath();
+
+      // 2. 画三角形
+      ctx.beginPath();
+      ctx.moveTo(20, 20);
+      ctx.lineTo(120, 20);
+      ctx.lineTo(120, 120);
+      ctx.lineTo(20, 20);
+      ctx.closePath();
+      ctx.stroke();
+
+      // 3. 画矩形
+      ctx.beginPath();
+      ctx.rect(150, 150, 100, 100);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.strokeRect(50, 50, 200, 300);
+      ctx.fillRect(60, 60, 100, 150);
+      ctx.closePath();
+
+      // 4. 画 圆
+      ctx.beginPath();
+      ctx.arc(400, 300, 100, 0, 2 * Math.PI, true);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.arc(400, 300, 5, 0, 2 * Math.PI, true);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.arc(350, 280, 30, 1.1 * Math.PI, 1.9 * Math.PI, false);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.arc(450, 280, 30, -0.1 * Math.PI, -0.9 * Math.PI, true);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.arc(400, 330, 30, 0, Math.PI, false);
+      ctx.lineTo(430, 330);
+      ctx.stroke();
+      ctx.closePath();
+    </script>
+  </body>
+</html>

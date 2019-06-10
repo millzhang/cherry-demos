@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Canvas-绘制文字</title>
+    <style>
+      #canvas {
+        border: 1px solid #aaeeaa;
+        margin: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+      const canvas = document.querySelector('#canvas');
+      const ctx = canvas.getContext('2d');
+      //
+      ctx.font = '28px bold 微软雅黑';
+      ctx.textAlign = 'left';
+      ctx.fillText('Hello World', 100, 300);
+      console.log(ctx.measureText('Hello World'))
+    </script>
+  </body>
+</html>
